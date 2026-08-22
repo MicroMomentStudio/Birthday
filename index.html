@@ -28,7 +28,7 @@
         <div id="cake-stage" class="stage hidden">
             <div class="emoji">🎂</div>
             <h1 class="hb-title">Happy Birthday To You! 🎉</h1>
-            <p>أحلى يوم بالسنة!تمني أمنية و طفي الشمعة...</p>
+            <p>أحلى يوم بالسنة! تمني أمنية وطفّي الشمعة...</p>
             
             <div class="cake-box" onclick="blowCandle()">
                 <div class="candle" id="candleFlame">🔥🔥🔥</div>
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <!-- STAGE 4: THE 3 CLASSIC COUPONS -->
+        <!-- STAGE 4: THE COUPONS (WITH SCROLL & 3 COUPONS) -->
         <div id="coupons-stage" class="stage hidden">
             <div class="emoji">🎟️</div>
             <h1>كوبونات هدياتج</h1>
@@ -66,6 +66,12 @@
                     <p><strong>3 طلعات قهوة على حسابي</strong></p>
                     <span class="fine-print">تستخدم لثلاث مرات بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
                 </div>
+
+                <div class="coupon-card">
+                    <h3>🎟️ كوبون رقم (3)</h3>
+                    <p><strong>عشاء أو غداء فاخر في مكانج المفضّل</strong></p>
+                    <span class="fine-print">تستخدم بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+                </div>
             </div>
             <button class="btn primary-btn" onclick="switchStages('coupons-stage', 'promise-stage')">التالي: العهد الوردي 🤝</button>
         </div>
@@ -81,18 +87,20 @@
             <button class="btn primary-btn" onclick="goToFinale()">موافقة ومتوكلين على الله ✨</button>
         </div>
 
-        <!-- STAGE 6: FINALE - BIRTHDAY MESSAGE + YOUTUBE SONG -->
+        <!-- STAGE 6: FINALE - SONG FIRST, MESSAGE UNDERNEATH -->
         <div id="finale-stage" class="stage hidden">
             <div class="emoji">💖✨</div>
-            <h1>رسالة من أعماق قلب عواش</h1>
-            <div class="letter-box">
-                <p>يا أغلى البشر، عسى سنة خير عليج وتتحقق كل أمانيج. وجودج بحياتي هو أكبر هدية، وهاليوم لازم نفرح فيه عدل! الله لا يحرمني من ضحكتج ولا من إنسانيتج الطيبة. كل عام وإنتي بألف خير يا رب! 🤍✨</p>
-            </div>
+            <h1>رسالة وأغنية خاصة لج</h1>
 
-            <!-- YouTube Embedded Audio/Music -->
+            <!-- YouTube Embedded Audio/Music (Song First & Larger) -->
             <div class="music-section">
                 <p>🎵 شغلي الأغنية وعيشي الجو:</p>
-                <iframe width="100%" height="80" src="https://www.youtube.com/embed/u8krV_--5YM?autoplay=1" title="Birthday Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="160" src="https://www.youtube.com/embed/u8krV_--5YM?autoplay=1&enablejsapi=1" title="Birthday Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- Message Underneath -->
+            <div class="letter-box">
+                <p>يا أغلى البشر، عسى سنة خير عليج وتتحقق كل أمانيج. وجودج بحياتي هو أكبر هدية، وهاليوم لازم نفرح فيه عدل! الله لا يحرمني من ضحكتج ولا من إنسانيتج الطيبة. كل عام وإنتي بألف خير يا رب! 🤍✨</p>
             </div>
         </div>
 
