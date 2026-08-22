@@ -3,83 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كل عام إنتي بخير! 🎂</title>
+    <title>عيد ميلاد سعيد يا غالية! 🎂✨</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
+    <!-- Falling Hearts Container -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
     <div class="card">
         
-        <!-- STAGE 1: THE BALLONS -->
-        <div id="balloon-stage" class="stage active">
-            <div class="emoji">🎈🎈🎈</div>
-            <h1>كل عام وإنتي بألف خير!</h1>
-            <p>نقعي 4 بلونات عشان تفتحين الكارد...</p>
-            <div class="balloons-container">
-                <div class="balloon" onclick="popBalloon(this)">🎈</div>
-                <div class="balloon" onclick="popBalloon(this)">🎈</div>
-                <div class="balloon" onclick="popBalloon(this)">🎈</div>
-                <div class="balloon" onclick="popBalloon(this)">🎈</div>
-            </div>
-            <p id="counter">البلونات الباقية: 3</p>
+        <!-- STAGE 1: THE ENVELOPE -->
+        <div id="envelope-stage" class="stage active">
+            <div class="emoji" onclick="openEnvelope()">💌</div>
+            <h1>عندج رسالة خاصة!</h1>
+            <p>اضغطي على الظرف عشان تفتحين مفاجأة اليوم...</p>
+            <button class="btn primary-btn" onclick="openEnvelope()">افتحي الظرف ✨</button>
         </div>
 
-        <!-- STAGE 2: THE CAKE & CANDLE -->
+        <!-- STAGE 2: HAPPY BIRTHDAY & CAKE -->
         <div id="cake-stage" class="stage hidden">
-            <div class="emoji" id="cake-emoji">🎂🕯️</div>
-            <h1>تمني أمنية!</h1>
-            <p id="wish-text">طفي الشمعة عشان تتحقق أمنيتج...</p>
-            <button id="blow-btn" class="btn primary-btn" onclick="blowCandle()">طفي الشمعة 🌬️</button>
+            <div class="emoji">🎂</div>
+            <h1 class="hb-title">Happy Birthday To You! 🎉</h1>
+            <p>أحلى يوم بالسنة! اضغطي على الشمعة عشان تطفيها...</p>
+            
+            <div class="cake-box" onclick="blowCandle()">
+                <div class="candle" id="candleFlame">🕯️🔥</div>
+                <div class="cake-img">🎂</div>
+            </div>
+            <p id="cake-msg" class="hint-text">اضغطي الشمعة لتطفئتها</p>
         </div>
 
-        <!-- STAGE 3: THE MUSIC & LETTER -->
-        <div id="letter-stage" class="stage hidden">
-            <div class="emoji">🎵💌</div>
-            <h1>اهداء</h1>
-            <p>شغلي الأغنية واقرئي الكلام من خاطري لج...</p>
-            
-            <!-- Music Player -->
-            <div class="music-player">
-                <audio id="birthday-audio" src="https://www.bensound.com/bensound-music/bensound-cute.mp3" loop></audio>
-                <button id="play-music-btn" class="btn secondary-btn" onclick="toggleMusic()">تشغيل الأغنية 🎶</button>
-            </div>
-
+        <!-- STAGE 3: THE MESSAGE & GIFT PROMPT -->
+        <div id="msg-stage" class="stage hidden">
+            <div class="emoji">💌🤍</div>
+            <h1>كل عام وإنتي بألف خير!</h1>
             <div class="letter-box">
-                <p><strong>الغالية على قلبي...</strong></p>
-                <p>كل سنة وإنتي ضحكة هالدنيا، وكل سنة وإنتي أقرب لقلبي. الله يجعلها سنة خير عليج تحقيق أمانيج كلها وتظلين هالفتاة الإيجابية اللي تنور حياة كل حد حولها! 🤍✨</p>
+                <p>يا أغلى البشر، عسى سنة خير عليج وتتحقق كل أمانيج. وجودج بحياتي هو أكبر هدية، وهاليوم لازم نفرح فيه عدل! ✨</p>
             </div>
-            
-            <button class="btn primary-btn" onclick="nextStage('coupon-stage')">كوبونات عيد الميلاد 🎁</button>
+            <button class="btn primary-btn" onclick="switchStages('msg-stage', 'gift-stage')">استلمي هديتج الحين 🎁</button>
         </div>
 
-        <!-- STAGE 4: BIRTHDAY COUPONS & PINKY PROMISE -->
-        <div id="coupon-stage" class="stage hidden">
-            <div class="emoji">🎟️💖</div>
-            <h1>كوبونات عيد ميلادج</h1>
-            <p>استخدميها بحكمة، تنتهي عقب سنة بالضبط!</p>
+        <!-- STAGE 4: THE GROWING GIFT BOX -->
+        <div id="gift-stage" class="stage hidden">
+            <div class="emoji">🎁</div>
+            <h1>فكري هديتج الكبيرة!</h1>
+            <p id="growth-instruction">اضغطي على الهدية عشان تكبر وتتفتح (باقي 5)</p>
             
-            <div class="coupon-card">
-                <h3>🎟️ كوبون رقم (1)</h3>
-                <p><strong>3 أحضان مجانية</strong></p>
-                <span class="fine-print">تستخدم بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+            <div id="growingGift" class="gift-box-interactive" onclick="growGift()">
+                🎁
             </div>
-                      <div class="coupon-card">
-                <h3>🎟️ كوبون رقم (2)</h3>
-                <p><strong>3 طلعات قهوة على حسابي</strong></p>
-                <span class="fine-print">تستخدم بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+        </div>
+
+        <!-- STAGE 5: THE 3 COUPONS & YOUTUBE MUSIC FINALE -->
+        <div id="finale-stage" class="stage hidden">
+            <div class="emoji">💖🎉</div>
+            <h1>كوبونات الهدية الخاصة لج!</h1>
+            <p class="subtitle">تم فتح الهدية بنجاح وتستاهلين أكثر:</p>
+            
+            <div class="coupons-container">
+                <div class="coupon">☕ كوبون قهوة وسويت عليّ</div>
+                <div class="coupon">🛍️ كوبون شوبينغ أونلاين صغنون</div>
+                <div class="coupon">🚗 كوبون توصيل لأي مكان تبغينه</div>
             </div>
 
-            <div class="coupon-card promise-card">
-                <h3></h3>بينكي برومس 🤙🏻🩷 </h3>
-                <p>أوعديني إنج تهتمين بصحتج، تبتسمين وايد، وما تخلين أي شي يضايق هالعين الحلوة طول هالسنة!</p>
+            <!-- YouTube Embedded Audio/Music -->
+            <div class="music-section">
+                <p>🎵 شغلي الأغنية وعيشي الجو:</p>
+                <iframe width="100%" height="80" src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID?autoplay=1" title="Birthday Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-
-            <p class="footer-note">صُنع بكل حب لعيونج ✨</p>
         </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="script-birthday.js"></script>
 </body>
 </html>
