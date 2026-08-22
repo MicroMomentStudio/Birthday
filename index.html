@@ -28,7 +28,7 @@
         <div id="cake-stage" class="stage hidden">
             <div class="emoji">🎂</div>
             <h1 class="hb-title">Happy Birthday To You! 🎉</h1>
-            <p>أحلى يوم بالسنة! اضغطي على الشمعة عشان تطفيها...</p>
+            <p>أحلى يوم بالسنة! اضغطي على الشمعة عشان تطفيها وتتمنين أمنية...</p>
             
             <div class="cake-box" onclick="blowCandle()">
                 <div class="candle" id="candleFlame">🕯️🔥</div>
@@ -37,20 +37,10 @@
             <p id="cake-msg" class="hint-text">اضغطي الشمعة لتطفئتها</p>
         </div>
 
-        <!-- STAGE 3: THE MESSAGE & GIFT PROMPT -->
-        <div id="msg-stage" class="stage hidden">
-            <div class="emoji">💌🤍</div>
-            <h1>كل عام وإنتي بألف خير!</h1>
-            <div class="letter-box">
-                <p>يا أغلى البشر، عسى سنة خير عليج وتتحقق كل أمانيج. وجودج بحياتي هو أكبر هدية، وهاليوم لازم نفرح فيه عدل! ✨</p>
-            </div>
-            <button class="btn primary-btn" onclick="switchStages('msg-stage', 'gift-stage')">استلمي هديتج الحين 🎁</button>
-        </div>
-
-        <!-- STAGE 4: THE GROWING GIFT BOX -->
+        <!-- STAGE 3: THE GROWING GIFT BOX -->
         <div id="gift-stage" class="stage hidden">
             <div class="emoji">🎁</div>
-            <h1>فكري هديتج الكبيرة!</h1>
+            <h1>هديتج الكبيرة في الانتظار!</h1>
             <p id="growth-instruction">اضغطي على الهدية عشان تكبر وتتفتح (باقي 5)</p>
             
             <div id="growingGift" class="gift-box-interactive" onclick="growGift()">
@@ -58,16 +48,45 @@
             </div>
         </div>
 
-        <!-- STAGE 5: THE 3 COUPONS & YOUTUBE MUSIC FINALE -->
-        <div id="finale-stage" class="stage hidden">
-            <div class="emoji">💖🎉</div>
-            <h1>كوبونات الهدية الخاصة لج!</h1>
-            <p class="subtitle">تم فتح الهدية بنجاح وتستاهلين أكثر:</p>
+        <!-- STAGE 4: THE 3 CLASSIC COUPONS -->
+        <div id="coupons-stage" class="stage hidden">
+            <div class="emoji">🎟️</div>
+            <h1>كوبونات الهدية الخاصة لج</h1>
+            <p class="subtitle">تستاهلين الدنيا وما فيهأ:</p>
             
             <div class="coupons-container">
-                <div class="coupon">☕ كوبون قهوة وسويت عليّ</div>
-                <div class="coupon">🛍️ كوبون شوبينغ أونلاين صغنون</div>
-                <div class="coupon">🚗 كوبون توصيل لأي مكان تبغينه</div>
+                <div class="coupon-card">
+                    <h3>🎟️ كوبون رقم (1)</h3>
+                    <p><strong>سويت أو كيكة فاخرة على حسابي</strong></p>
+                    <span class="fine-print">تستخدم بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+                </div>
+
+                <div class="coupon-card">
+                    <h3>🎟️ كوبون رقم (2)</h3>
+                    <p><strong>3 طلعات قهوة على حسابي</strong></p>
+                    <span class="fine-print">تستخدم بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+                </div>
+            </div>
+            <button class="btn primary-btn" onclick="switchStages('coupons-stage', 'promise-stage')">التالي: العهد الوردي 🤝</button>
+        </div>
+
+        <!-- STAGE 5: THE PINKY PROMISE -->
+        <div id="promise-stage" class="stage hidden">
+            <div class="emoji">🤝🩷</div>
+            <h1>عهد وردي (Pinky Promise)</h1>
+            <div class="coupon-card promise-card">
+                <h3>🤝 عهد وردي بيننا</h3>
+                <p>أوعديني إنج تهتمين بصحتج، تبتسمين وايد، وما تخلين أي شي يضايق هالعين الحلوة طول هالسنة!</p>
+            </div>
+            <button class="btn primary-btn" onclick="goToFinale()">موافقة ومتوكلين على الله ✨</button>
+        </div>
+
+        <!-- STAGE 6: FINALE - BIRTHDAY MESSAGE + YOUTUBE SONG -->
+        <div id="finale-stage" class="stage hidden">
+            <div class="emoji">💖✨</div>
+            <h1>رسالة من القلب</h1>
+            <div class="letter-box">
+                <p>يا أغلى البشر، عسى سنة خير عليج وتتحقق كل أمانيج. وجودج بحياتي هو أكبر هدية، وهاليوم لازم نفرح فيه عدل! الله لا يحرمني من ضحكتج ولا من إنسانيتج الطيبة. كل عام وإنتي بألف خير يا رب! 🤍✨</p>
             </div>
 
             <!-- YouTube Embedded Audio/Music -->
