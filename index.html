@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل عام إنتي بخير! 🎂</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="card">
+        
+        <!-- STAGE 1: THE BALLONS -->
+        <div id="balloon-stage" class="stage active">
+            <div class="emoji">🎈🎈🎈</div>
+            <h1>كل عام وإنتي بألف خير!</h1>
+            <p>نقعي 3 بلونات عشان تفتحين الكارد...</p>
+            <div class="balloons-container">
+                <div class="balloon" onclick="popBalloon(this)">🎈</div>
+                <div class="balloon" onclick="popBalloon(this)">🎈</div>
+                <div class="balloon" onclick="popBalloon(this)">🎈</div>
+                <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            </div>
+            <p id="counter">البلونات الباقية: 3</p>
+        </div>
+
+        <!-- STAGE 2: THE CAKE & CANDLE -->
+        <div id="cake-stage" class="stage hidden">
+            <div class="emoji" id="cake-emoji">🎂🕯️</div>
+            <h1>تمني أمنية!</h1>
+            <p id="wish-text">ضغطي على الشمعة عشان تطفيها وتتحقق أمنيتج...</p>
+            <button id="blow-btn" class="btn primary-btn" onclick="blowCandle()">طفي الشمعة 🌬️</button>
+        </div>
+
+        <!-- STAGE 3: THE MUSIC & LETTER -->
+        <div id="letter-stage" class="stage hidden">
+            <div class="emoji">🎵💌</div>
+            <h1>أغنيتج الخاصة</h1>
+            <p>شغلي الأغنية واقرئي الكلام من خاطري لج...</p>
+            
+            <!-- Music Player -->
+            <div class="music-player">
+                <audio id="birthday-audio" src="https://www.bensound.com/bensound-music/bensound-cute.mp3" loop></audio>
+                <button id="play-music-btn" class="btn secondary-btn" onclick="toggleMusic()">تشغيل الأغنية 🎶</button>
+            </div>
+
+            <div class="letter-box">
+                <p><strong>الغالية على قلبي...</strong></p>
+                <p>كل سنة وإنتي ضحكة هالدنيا، وكل سنة وإنتي أقرب لقلبي. الله يجعلها سنة خير عليج تحقيق أمانيج كلها وتظلين هالفتاة الإيجابية اللي تنور حياة كل حد حولها! 🤍✨</p>
+            </div>
+            
+            <button class="btn primary-btn" onclick="nextStage('coupon-stage')">كوبونات عيد الميلاد 🎁</button>
+        </div>
+
+        <!-- STAGE 4: BIRTHDAY COUPONS & PINKY PROMISE -->
+        <div id="coupon-stage" class="stage hidden">
+            <div class="emoji">🎟️💖</div>
+            <h1>كوبونات عيد ميلادج</h1>
+            <p>استخدميها بحكمة، تنتهي عقب سنة بالضبط!</p>
+            
+            <div class="coupon-card">
+                <h3>🎟️ كوبون رقم (1)</h3>
+                <p><strong>3 أحضان مجانية</strong></p>
+                <span class="fine-print">تستخدم بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+            </div>
+                      <div class="coupon-card">
+                <h3>🎟️ كوبون رقم (2)</h3>
+                <p><strong>3 طلعات قهوة على حسابي</strong></p>
+                <span class="fine-print">تستخدم بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+            </div>
+
+            <div class="coupon-card promise-card">
+                <h3>🤝 عهد وردي (Pinky Promise)</h3>
+                <p>أوعديني إنج تهتمين بصحتج، تبتسمين وايد، وما تخلين أي شي يضايق هالعين الحلوة طول هالسنة!</p>
+            </div>
+
+            <p class="footer-note">صُنع بكل حب لعيونج ✨</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
