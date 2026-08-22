@@ -10,7 +10,6 @@ function switchStages(currentId, nextId) {
 
 // --- STAGE 1: OPEN ENVELOPE ---
 function openEnvelope() {
-    // Trigger Confetti Explosion everywhere!
     confetti({
         particleCount: 150,
         spread: 100,
@@ -23,13 +22,12 @@ function openEnvelope() {
     }, 800);
 }
 
-// --- STAGE 2: BLOW CANDLE & FALLING STARS ---
+// --- STAGE 2: BLOW CANDLE & WISH ---
 function blowCandle() {
     const candle = document.getElementById('candleFlame');
     candle.textContent = "💨✨";
-    document.getElementById('cake-msg').textContent = "طفيتي الشمعة بنجاح! طاحت النجوم لج ✨";
+    document.getElementById('cake-msg').textContent = "يا رب كل أمانيج تتحقق هالسنة! ✨";
 
-    // Trigger falling stars / sparkles using confetti styling
     confetti({
         particleCount: 80,
         spread: 90,
@@ -39,11 +37,11 @@ function blowCandle() {
     });
 
     setTimeout(() => {
-        switchStages('cake-stage', 'msg-stage');
-    }, 1200);
+        switchStages('cake-stage', 'gift-stage');
+    }, 1500);
 }
 
-// --- STAGE 4: GROWING GIFT BOX ---
+// --- STAGE 3: GROWING GIFT BOX ---
 let giftClicks = 0;
 const maxClicks = 5;
 
@@ -60,11 +58,9 @@ function growGift() {
     if (remaining > 0) {
         instruction.textContent = `اضغطي بعد (${remaining}) مرات لتتفتح الهدية!`;
     } else {
-        // Explode into a heart and transition to coupons & music
         giftBox.textContent = "💖";
         giftBox.style.transform = "scale(1.5)";
         
-        // Massive celebratory confetti
         confetti({
             particleCount: 120,
             spread: 90,
@@ -72,13 +68,16 @@ function growGift() {
             colors: ['#e91e63', '#ff69b4', '#ffffff']
         });
 
-        // Start falling hearts animation across the background
-        startFallingHearts();
-
         setTimeout(() => {
-            switchStages('gift-stage', 'finale-stage');
+            switchStages('gift-stage', 'coupons-stage');
         }, 1000);
     }
+}
+
+// --- FINALE TRANSITION (START FALLING HEARTS) ---
+function goToFinale() {
+    switchStages('promise-stage', 'finale-stage');
+    startFallingHearts();
 }
 
 // --- BACKGROUND FALLING HEARTS GENERATOR ---
