@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    
+    /* ==========================================================
+       BACKGROUND IMAGE INSTRUCTION:
+       Replace the URL below with a direct link to your cute pink/birthday background image.
+       ========================================================== */
+    background: url('YOUR_IMAGE_LINK_HERE') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #fce4ec; /* Soft pink fallback */
+
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.15);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.stage.hidden {
+    display: none;
+}
+
+.stage.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.emoji {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 22px;
+    color: #ad1457;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Balloons styling */
+.balloons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.balloon {
+    font-size: 35px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    animation: float 2s ease-in-out infinite alternate;
+}
+
+.balloon:hover {
+    transform: scale(1.2);
+}
+
+.balloon.popped {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.primary-btn {
+    background-color: #e91e63;
+    color: white;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.primary-btn:hover {
+    background-color: #c2185b;
+    transform: scale(1.03);
+}
+
+.secondary-btn {
+    background-color: #f8bbd0;
+    color: #ad1457;
+}
+
+/* Music player box */
+.music-player {
+    margin-bottom: 15px;
+}
+
+/* Letter & Coupon Boxes */
+.letter-box {
+    background: #fff0f5;
+    border: 2px dashed #f48fb1;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: right;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.coupon-card {
+    background: #fff;
+    border: 2px solid #f48fb1;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    text-align: right;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.coupon-card h3 {
+    font-size: 14px;
+    color: #c2185b;
+    margin-bottom: 4px;
+}
+
+.coupon-card p {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.fine-print {
+    font-size: 10px;
+    color: #888;
+}
+
+.promise-card {
+    background: #fce4ec;
+    border-color: #e91e63;
+}
+
+.footer-note {
+    font-size: 11px;
+    color: #888;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+}
+/* Add this to style.css if you have many coupons so they become scrollable */
+#coupon-stage {
+    max-height: 80vh;
+    overflow-y: auto;
+}
