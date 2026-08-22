@@ -1,75 +1,212 @@
-let poppedCount = 0;
-const totalNeededToPop = 4;
-
-// Balloon popping logic
-function popBalloon(balloonElement) {
-    if (balloonElement.classList.contains('popped')) return;
-
-    balloonElement.classList.add('popped');
-    poppedCount++;
-
-    const remaining = totalNeededToPop - poppedCount;
-    const counterText = document.getElementById('counter');
-
-    if (remaining > 0) {
-        counterText.textContent = `باقي لج ${remaining} بلونات!`;
-    } else {
-        counterText.textContent = "يالله، كفو! ننتقل للخطوة اللي بعدها 🎉";
-        
-        // Switch to Cake Stage after a short cute delay
-        setTimeout(() => {
-            switchStages('balloon-stage', 'cake-stage');
-        }, 800);
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-// Blow candle logic
-function blowCandle() {
-    const cakeEmoji = document.getElementById('cake-emoji');
-    const wishText = document.getElementById('wish-text');
-    const blowBtn = document.getElementById('blow-btn');
-
-    // Change emoji to unlit candle/cake and update text
-    cakeEmoji.textContent = "🎂✨";
-    wishText.textContent = "بتتحقق أمنيتج بإذن الله! تعالي نشوف المفاجأة اللي بعدها...";
-    blowBtn.style.display = "none";
-
-    // Switch to Letter/Music stage after 2 seconds
-    setTimeout(() => {
-        switchStages('cake-stage', 'letter-stage');
-    }, 2000);
+body {
+    font-family: 'Cairo', sans-serif;
+    /* Custom Background Image Link placeholder */
+    background: url('YOUR_CUSTOM_BACKGROUND_LINK_HERE') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #fce4ec; /* Soft pink fallback */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
-// Music player toggle logic
-const audio = document.getElementById('birthday-audio');
-const musicBtn = document.getElementById('play-music-btn');
-
-function toggleMusic() {
-    if (audio.paused) {
-        audio.play();
-        musicBtn.textContent = "إيقاف الأغنية ⏸️";
-        musicBtn.style.backgroundColor = "#e91e63";
-        musicBtn.style.color = "white";
-    } else {
-        audio.pause();
-        musicBtn.textContent = "تشغيل الأغنية 🎶";
-        musicBtn.style.backgroundColor = "#f8bbd0";
-        musicBtn.style.color = "#ad1457";
-    }
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.15);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 10;
+    min-height: 380px;
 }
 
-// Helper function to switch between views smoothly
-function switchStages(currentId, nextId) {
-    document.getElementById(currentId).classList.remove('active');
-    document.getElementById(currentId).classList.add('hidden');
-
-    const nextStage = document.getElementById(nextId);
-    nextStage.classList.remove('hidden');
-    nextStage.classList.add('active');
+.stage.hidden {
+    display: none;
 }
 
-function nextStage(nextId) {
-    if(nextId === 'coupon-stage') {
-        switchStages('letter-stage', 'coupon-stage');
-    }
+.stage.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.emoji {
+    font-size: 55px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.emoji:hover {
+    transform: scale(1.1);
+}
+
+h1 {
+    font-size: 21px;
+    color: #c2185b;
+    margin-bottom: 10px;
+}
+
+.hb-title {
+    font-size: 24px;
+    color: #ad1457;
+    font-weight: 700;
+}
+
+p {
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.primary-btn {
+    background-color: #e91e63;
+    color: white;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.primary-btn:hover {
+    background-color: #c2185b;
+    transform: scale(1.03);
+}
+
+/* Cake & Candle */
+.cake-box {
+    cursor: pointer;
+    margin: 15px 0;
+    display: inline-block;
+    position: relative;
+}
+
+.candle {
+    font-size: 30px;
+    animation: flicker 1s infinite alternate;
+}
+
+.cake-img {
+    font-size: 65px;
+}
+
+.hint-text {
+    font-size: 12px;
+    color: #ad1457;
+    margin-top: 5px;
+}
+
+/* Letter Box */
+.letter-box {
+    background: #fce4ec;
+    border: 2px dashed #f48fb1;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: right;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Growing Gift Box */
+.gift-box-interactive {
+    font-size: 60px;
+    cursor: pointer;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Coupons */
+.coupons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.coupon {
+    background: #fff0f5;
+    border: 2px solid #f48fb1;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #880e4f;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Music Section */
+.music-section {
+    margin-top: 10px;
+    background: #fafafa;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.music-section p {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+/* Falling Hearts Animation */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.falling-heart {
+    position: absolute;
+    top: -10px;
+    font-size: 20px;
+    animation: fallLinear linear infinite;
+}
+
+@keyframes fallLinear {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes flicker {
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 5px #ffeb3b); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
