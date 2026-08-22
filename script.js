@@ -1,5 +1,5 @@
 let poppedCount = 0;
-const totalNeededToPop = 3;
+const totalNeededToPop = 4;
 
 // Balloon popping logic
 function popBalloon(balloonElement) {
@@ -34,10 +34,10 @@ function blowCandle() {
     wishText.textContent = "بتتحقق أمنيتج بإذن الله! تعالي نشوف المفاجأة اللي بعدها...";
     blowBtn.style.display = "none";
 
-    // Switch to Letter/Music stage after 1.5 seconds
+    // Switch to Letter/Music stage after 2 seconds
     setTimeout(() => {
         switchStages('cake-stage', 'letter-stage');
-    }, 1500);
+    }, 2000);
 }
 
 // Music player toggle logic
