@@ -250,3 +250,22 @@ p {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* Studio Credit Footer */
+.studio-credit {
+    margin-top: 25px;
+    font-size: 11px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.08);
+    padding-top: 12px;
+}
+
+.studio-credit a {
+    color: #888888;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.studio-credit a:hover {
+    color: #8e24aa; /* Standard elegant purple */
+    text-decoration: underline;
+}
