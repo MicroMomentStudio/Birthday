@@ -6,18 +6,26 @@
 
 body {
     font-family: 'Cairo', sans-serif;
-    background: url('https://i.postimg.cc/g2cMhM18/birthday.png') no-repeat center center fixed;
+    background: url('https://i.postimg.cc/0NL0mG46/birthdayy.jpg') repeat center center fixed;
     background-size: cover;
     background-color: #fce4ec;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
 }
 
+/* Page wrapper allows clicks to pass through empty spaces, managing layout */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    pointer-events: none; 
+}
+
+/* Re-enabled clicks specifically for the card */
 .card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
@@ -29,8 +37,9 @@ body {
     max-width: 420px;
     position: relative;
     z-index: 10;
-    max-height: 92vh;
+    max-height: 85vh;
     overflow-y: auto; /* Enables smooth scrolling inside the card if content is long */
+    pointer-events: auto; 
 }
 
 /* Custom scrollbar for better look */
@@ -250,22 +259,33 @@ p {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-/* Studio Credit Footer */
+
+/* Studio Credit Footer - Translucent Pill with Shadow & Clickable */
 .studio-credit {
-    margin-top: 25px;
-    font-size: 11px;
-    border-top: 1px dashed rgba(0, 0, 0, 0.08);
-    padding-top: 12px;
+    margin-top: 18px;
+    text-align: center;
+    width: 100%;
+    pointer-events: auto; 
+    z-index: 10;
 }
 
 .studio-credit a {
-    color: #888888;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    color: #555555;
+    font-size: 11px;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.2s ease;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
 }
 
 .studio-credit a:hover {
-    color: #8e24aa; /* Standard elegant purple */
-    text-decoration: underline;
+    background: rgba(255, 255, 255, 0.95);
+    color: #8e24aa;
+    transform: translateY(-1px);
 }
