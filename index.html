@@ -14,96 +14,100 @@
     <!-- Falling Hearts Container -->
     <div class="hearts-container" id="heartsContainer"></div>
 
-    <div class="card">
-        
-        <!-- STAGE 1: THE ENVELOPE -->
-        <div id="envelope-stage" class="stage active">
-            <div class="emoji" onclick="openEnvelope()">💌</div>
-            <h1>عندج رسالة خاصة من عواش!</h1>
-            <p>اضغطي على الظرف عشان تفتحين مفاجأة اليوم...</p>
-            <button class="btn primary-btn" onclick="openEnvelope()">افتحي الظرف ✨</button>
-        </div>
-
-        <!-- STAGE 2: HAPPY BIRTHDAY & CAKE -->
-        <div id="cake-stage" class="stage hidden">
-            <div class="emoji">🎂</div>
-            <h1 class="hb-title">Happy Birthday To You! 🎉</h1>
-            <p>أحلى يوم بالسنة! تمني أمنية وطفّي الشمعة...</p>
+    <!-- Main Page Wrapper to center card and keep footer at bottom -->
+    <div class="page-wrapper">
+        <div class="card">
             
-            <div class="cake-box" onclick="blowCandle()">
-                <div class="candle" id="candleFlame">🔥🔥🔥</div>
-                <div class="cake-img">🎂</div>
+            <!-- STAGE 1: THE ENVELOPE -->
+            <div id="envelope-stage" class="stage active">
+                <div class="emoji" onclick="openEnvelope()">💌</div>
+                <h1>عندج رسالة خاصة من عواش!</h1>
+                <p>اضغطي على الظرف عشان تفتحين مفاجأة اليوم...</p>
+                <button class="btn primary-btn" onclick="openEnvelope()">افتحي الظرف ✨</button>
             </div>
-            <p id="cake-msg" class="hint-text">اضغطي عشان تطفين الشمعة</p>
-        </div>
 
-        <!-- STAGE 3: THE GROWING GIFT BOX -->
-        <div id="gift-stage" class="stage hidden">
-            <div class="emoji">˚.🎀༘⋆</div>
-            <h1>هديتج الكبيرة في الانتظار!</h1>
-            <p id="growth-instruction">اضغطي على الهدية عشان تفتحينها (باقي 5)</p>
-            
-            <div id="growingGift" class="gift-box-interactive" onclick="growGift()">
-                🎁
+            <!-- STAGE 2: HAPPY BIRTHDAY & CAKE -->
+            <div id="cake-stage" class="stage hidden">
+                <div class="emoji">🎂</div>
+                <h1 class="hb-title">Happy Birthday To You! 🎉</h1>
+                <p>أحلى يوم بالسنة! تمني أمنية وطفّي الشمعة...</p>
+                
+                <div class="cake-box" onclick="blowCandle()">
+                    <div class="candle" id="candleFlame">🔥🔥🔥</div>
+                    <div class="cake-img">🎂</div>
+                </div>
+                <p id="cake-msg" class="hint-text">اضغطي عشان تطفين الشمعة</p>
             </div>
-        </div>
 
-        <!-- STAGE 4: THE COUPONS (WITH SCROLL & 3 COUPONS) -->
-        <div id="coupons-stage" class="stage hidden">
-            <div class="emoji">🎟️</div>
-            <h1>كوبونات هدياتج</h1>
-            <p class="subtitle">تستاهلين الدنيا وما فيها:</p>
-            
-            <div class="coupons-container">
-                <div class="coupon-card">
-                    <h3>🎟️ كوبون رقم (1)</h3>
-                    <p><strong>سويت على حسابي</strong></p>
-                    <span class="fine-print">تستخدم لمرة واحدة بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
-                </div>
-
-                <div class="coupon-card">
-                    <h3>🎟️ كوبون رقم (2)</h3>
-                    <p><strong>3 طلعات قهوة على حسابي</strong></p>
-                    <span class="fine-print">تستخدم لثلاث مرات بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
-                </div>
-
-                <div class="coupon-card">
-                    <h3>🎟️ كوبون رقم (3)</h3>
-                    <p><strong>عشاء فاخر في مكانج المفضّل</strong></p>
-                    <span class="fine-print">تستخدم لمرة واحدة بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+            <!-- STAGE 3: THE GROWING GIFT BOX -->
+            <div id="gift-stage" class="stage hidden">
+                <div class="emoji">˚.🎀༘⋆</div>
+                <h1>هديتج الكبيرة في الانتظار!</h1>
+                <p id="growth-instruction">اضغطي على الهدية عشان تفتحينها (باقي 5)</p>
+                
+                <div id="growingGift" class="gift-box-interactive" onclick="growGift()">
+                    🎁
                 </div>
             </div>
-            <button class="btn primary-btn" onclick="switchStages('coupons-stage', 'promise-stage')">التالي: العهد الوردي 🤝</button>
+
+            <!-- STAGE 4: THE COUPONS (WITH SCROLL & 3 COUPONS) -->
+            <div id="coupons-stage" class="stage hidden">
+                <div class="emoji">🎟️</div>
+                <h1>كوبونات هدياتج</h1>
+                <p class="subtitle">تستاهلين الدنيا وما فيها:</p>
+                
+                <div class="coupons-container">
+                    <div class="coupon-card">
+                        <h3>🎟️ كوبون رقم (1)</h3>
+                        <p><strong>سويت على حسابي</strong></p>
+                        <span class="fine-print">تستخدم لمرة واحدة بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+                    </div>
+
+                    <div class="coupon-card">
+                        <h3>🎟️ كوبون رقم (2)</h3>
+                        <p><strong>3 طلعات قهوة على حسابي</strong></p>
+                        <span class="fine-print">تستخدم لثلاث مرات بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+                    </div>
+
+                    <div class="coupon-card">
+                        <h3>🎟️ كوبون رقم (3)</h3>
+                        <p><strong>عشاء فاخر في مكانج المفضّل</strong></p>
+                        <span class="fine-print">تستخدم لمرة واحدة بحكمة وعند اللزوم فقط • تنتهي بعد 365 يوم</span>
+                    </div>
+                </div>
+                <button class="btn primary-btn" onclick="switchStages('coupons-stage', 'promise-stage')">التالي: العهد الوردي 🤝</button>
+            </div>
+
+            <!-- STAGE 5: THE PINKY PROMISE -->
+            <div id="promise-stage" class="stage hidden">
+                <div class="emoji">🤝🩷</div>
+                <h1>عهد وردي (Pinky Promise)</h1>
+                <div class="coupon-card promise-card">
+                    <h3>🤝 عهد وردي بيننا</h3>
+                    <p>أوعديني يا مريم إنج تهتمين بصحتج، تبتسمين وايد، وما تخلين أي شي يضايق هالعين الحلوة طول هالسنة!</p>
+                </div>
+                <button class="btn primary-btn" onclick="goToFinale()">موافقة ومتوكلين على الله ✨</button>
+            </div>
+
+            <!-- STAGE 6: FINALE - SONG FIRST, MESSAGE UNDERNEATH -->
+            <div id="finale-stage" class="stage hidden">
+                <div class="emoji">💖✨</div>
+                <h1>رسالة وأغنية خاصة لج</h1>
+
+                <!-- YouTube Embedded Audio/Music (Song First & Larger) -->
+                <div class="music-section">
+                    <p>🎵 شغلي الأغنية وعيشي الجو:</p>
+                    <iframe width="100%" height="160" src="https://www.youtube.com/embed/u8krV_--5YM?autoplay=1&enablejsapi=1" title="Birthday Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <!-- Message Underneath -->
+                <div class="letter-box">
+                    <p>يا أغلى البشر، عسى سنة خير عليج وتتحقق كل أمانيج. وجودج بحياتي هو أكبر هدية، وهاليوم لازم نفرح فيه عدل! الله لا يحرمني من ضحكتج ولا من إنسانيتج الطيبة. كل عام وإنتي بألف خير يا رب! 🤍✨</p>
+                </div>
+            </div>
         </div>
 
-        <!-- STAGE 5: THE PINKY PROMISE -->
-        <div id="promise-stage" class="stage hidden">
-            <div class="emoji">🤝🩷</div>
-            <h1>عهد وردي (Pinky Promise)</h1>
-            <div class="coupon-card promise-card">
-                <h3>🤝 عهد وردي بيننا</h3>
-                <p>أوعديني يا مريم إنج تهتمين بصحتج، تبتسمين وايد، وما تخلين أي شي يضايق هالعين الحلوة طول هالسنة!</p>
-            </div>
-            <button class="btn primary-btn" onclick="goToFinale()">موافقة ومتوكلين على الله ✨</button>
-        </div>
-
-        <!-- STAGE 6: FINALE - SONG FIRST, MESSAGE UNDERNEATH -->
-        <div id="finale-stage" class="stage hidden">
-            <div class="emoji">💖✨</div>
-            <h1>رسالة وأغنية خاصة لج</h1>
-
-            <!-- YouTube Embedded Audio/Music (Song First & Larger) -->
-            <div class="music-section">
-                <p>🎵 شغلي الأغنية وعيشي الجو:</p>
-                <iframe width="100%" height="160" src="https://www.youtube.com/embed/u8krV_--5YM?autoplay=1&enablejsapi=1" title="Birthday Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <!-- Message Underneath -->
-            <div class="letter-box">
-                <p>يا أغلى البشر، عسى سنة خير عليج وتتحقق كل أمانيج. وجودج بحياتي هو أكبر هدية، وهاليوم لازم نفرح فيه عدل! الله لا يحرمني من ضحكتج ولا من إنسانيتج الطيبة. كل عام وإنتي بألف خير يا رب! 🤍✨</p>
-            </div>
-        </div>
-<!-- STUDIO CREDIT FOOTER (Appears on all cards) -->
+        <!-- STUDIO CREDIT FOOTER -->
         <div class="studio-credit">
             <a href="https://instagram.com/micromoment.studio" target="_blank">Created by @micromoment.studio ✨</a>
         </div>
